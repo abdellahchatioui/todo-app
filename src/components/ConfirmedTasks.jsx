@@ -7,7 +7,7 @@ const ConfirmedTasks = ({ confirmedTasks, cancelTask }) => {
     const doc = new jsPDF();
 
     doc.setFontSize(16);
-    doc.text("DEVIS / QUOTATION", 14, 20);
+    doc.text("DEVIS", 14, 20);
 
     doc.setFontSize(10);
     doc.text(task.entrepriseNom, 14, 30);

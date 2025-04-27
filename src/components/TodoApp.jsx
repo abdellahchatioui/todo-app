@@ -12,10 +12,10 @@ const TodoApp = ({ tasks, setTasks, confirmTask }) => {
     clientAdresse: "",
     clientEmail: "",
     clientPhone: "",
-    entrepriseNom: "",
-    entrepriseAdresse: "",
-    entreprisePhone: "",
-    entrepriseEmail: ""
+    entrepriseNom: "DIGI Al Mahata",
+    entrepriseAdresse: "AlMahata rue 322",
+    entreprisePhone: "07777777777",
+    entrepriseEmail: "Digialmahat@gmail.com"
   });
 
   const toggleForm = () => setFormVisible(!formVisible);
@@ -36,16 +36,12 @@ const TodoApp = ({ tasks, setTasks, confirmTask }) => {
       clientAdresse: "",
       clientEmail: "",
       clientPhone: "",
-      entrepriseNom: "",
-      entrepriseAdresse: "",
-      entreprisePhone: "",
-      entrepriseEmail: ""
     });
     setFormVisible(false);
   };
 
   const handleConfirm = (task) => {
-    downloadFormattedPDF(task);
+    // downloadFormattedPDF(task);
     confirmTask(task);
   };
 
@@ -53,7 +49,7 @@ const TodoApp = ({ tasks, setTasks, confirmTask }) => {
     const doc = new jsPDF();
 
     doc.setFontSize(16);
-    doc.text("DEVIS / QUOTATION", 14, 20);
+    doc.text("DEVIS", 14, 20);
 
     doc.setFontSize(10);
     doc.text(task.entrepriseNom, 14, 30);
@@ -112,18 +108,13 @@ const TodoApp = ({ tasks, setTasks, confirmTask }) => {
       {formVisible && (
         <form onSubmit={handleSubmit} className="space-y-3 mb-6">
           <input type="text" name="nomClient" placeholder="Nom Client" value={formData.nomClient} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="text" name="clientAdresse" placeholder="Adresse Client" value={formData.clientAdresse} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="text" name="clientPhone" placeholder="Téléphone Client" value={formData.clientPhone} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="email" name="clientEmail" placeholder="Email Client" value={formData.clientEmail} onChange={handleChange} className="w-full p-2 border rounded" required />
+          <input type="text" name="clientAdresse" placeholder="Adresse Client" value={formData.clientAdresse} onChange={handleChange} className="w-full p-2 border rounded"  />
+          <input type="text" name="clientPhone" placeholder="Téléphone Client" value={formData.clientPhone} onChange={handleChange} className="w-full p-2 border rounded"  />
+          <input type="email" name="clientEmail" placeholder="Email Client" value={formData.clientEmail} onChange={handleChange} className="w-full p-2 border rounded"  />
 
           <input type="text" name="object" placeholder="Objet" value={formData.object} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="number" name="quantite" placeholder="Quantité" value={formData.quantite} onChange={handleChange} className="w-full p-2 border rounded" required />
           <input type="number" name="prix" placeholder="Prix unitaire" value={formData.prix} onChange={handleChange} className="w-full p-2 border rounded" required />
-
-          <input type="text" name="entrepriseNom" placeholder="Nom de l'entreprise" value={formData.entrepriseNom} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="text" name="entrepriseAdresse" placeholder="Adresse de l'entreprise" value={formData.entrepriseAdresse} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="text" name="entreprisePhone" placeholder="Téléphone de l'entreprise" value={formData.entreprisePhone} onChange={handleChange} className="w-full p-2 border rounded" required />
-          <input type="email" name="entrepriseEmail" placeholder="Email de l'entreprise" value={formData.entrepriseEmail} onChange={handleChange} className="w-full p-2 border rounded" required />
+          <input type="number" name="quantite" placeholder="Quantité" value={formData.quantite} onChange={handleChange} className="w-full p-2 border rounded" required />
 
           <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Save</button>
         </form>

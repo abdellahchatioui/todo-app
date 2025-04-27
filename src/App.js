@@ -1,7 +1,7 @@
 // App.jsx
 import React, { useState, useEffect } from "react";
 import TodoApp from "./components/TodoApp";
-import ConfirmedTasks from "./components/gConfirmedTasks";
+import ConfirmedTasks from "./components/ConfirmedTasks";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
